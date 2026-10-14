@@ -1,0 +1,20 @@
+{
+  "name": "thehome-recharts-card",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Diagramkort til TheHome bygget med Recharts",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "recharts": "3.10.1",
+    "vite": "6.2.0",
+    "vitest": "3.0.7"
+  }
+}

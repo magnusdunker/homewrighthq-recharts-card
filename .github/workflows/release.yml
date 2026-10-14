@@ -1,0 +1,39 @@
+# Bygger recharts-card.js, når et tag som v1.2.3 pushes (eller en release
+# udgives på github.com), og lægger den sammen med thehome.json på releasen.
+# TheHome installerer derfra.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recharts-card
+          path: dist/recharts-card.js
+      # A release published on github.com already exists; then only add the files.
+      - if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" dist/recharts-card.js thehome.json --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" dist/recharts-card.js thehome.json --title "$GITHUB_REF_NAME" --generate-notes
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
