@@ -1,6 +1,6 @@
 # Bygger recharts-card.js, når et tag som v1.2.3 pushes (eller en release
 # udgives på github.com), og lægger den sammen med thehome.json på releasen.
-# TheHome installerer derfra.
+# HomewrightHQ installerer derfra.
 name: Release
 
 on:

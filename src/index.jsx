@@ -1,6 +1,6 @@
-// Recharts-diagram: et dashboardkort til TheHome.
+// Recharts-diagram: et dashboardkort til HomewrightHQ.
 //
-// Bygges som et klassisk script (IIFE). React kommer fra TheHome via
+// Bygges som et klassisk script (IIFE). React kommer fra HomewrightHQ via
 // window.thehome, så det ikke er med i filen; se vite.config.js.
 
 import { useMemo } from 'react';
@@ -11,7 +11,7 @@ const TYPE = 'custom:recharts-chart';
 const thehome = window.thehome;
 
 if (!thehome || thehome.apiVersion !== 1) {
-  console.error('Recharts-diagram: TheHome mangler eller har en anden plugin-version');
+  console.error('Recharts-diagram: HomewrightHQ mangler eller har en anden plugin-version');
 } else {
   register();
 }

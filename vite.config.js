@@ -1,5 +1,5 @@
 // Builds one classic script, dist/recharts-card.js. React is not bundled:
-// the script runs inside TheHome, which hands out its own React on
+// the script runs inside HomewrightHQ, which hands out its own React on
 // window.thehome. Recharts and everything else is bundled.
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';

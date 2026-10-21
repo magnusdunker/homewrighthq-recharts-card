@@ -2,7 +2,7 @@
   "name": "thehome-recharts-card",
   "version": "0.1.0",
   "private": true,
-  "description": "Diagramkort til TheHome bygget med Recharts",
+  "description": "Diagramkort til HomewrightHQ bygget med Recharts",
   "license": "MIT",
   "type": "module",
   "scripts": {

@@ -1,6 +1,6 @@
-// Turns TheHome history into rows Recharts can draw: one row per point in
+// Turns HomewrightHQ history into rows Recharts can draw: one row per point in
 // time, one key per entity. Pure functions, so they can be tested without
-// TheHome or a browser.
+// HomewrightHQ or a browser.
 
 /**
  * @typedef {{ t: number, s: string, v: number | null }} Point

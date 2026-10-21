@@ -3,5 +3,5 @@
   "name": "Recharts-diagram",
   "plugin_api": 1,
   "frontend": ["recharts-card.js"],
-  "documentation": "https://github.com/magnusdunker/thehome-recharts-card"
+  "documentation": "https://github.com/magnusdunker/homewrighthq-recharts-card"
 }

@@ -1,13 +1,13 @@
-# Recharts-diagram til TheHome
+# Recharts-diagram til HomewrightHQ
 
-Et dashboardkort til [TheHome](https://github.com/magnusdunker/thehome), der tegner historik som linje-, område- eller søjlediagram med [Recharts](https://recharts.org). Det er også et eksempel på, hvordan man laver sine egne kort.
+Et dashboardkort til [HomewrightHQ](https://github.com/magnusdunker/homewrighthq), der tegner historik som linje-, område- eller søjlediagram med [Recharts](https://recharts.org). Det er også et eksempel på, hvordan man laver sine egne kort.
 
 ## Installation
 
-I TheHome: **Indstillinger → Integrationer → Fra GitHub**. Indsæt
+I HomewrightHQ: **Indstillinger → Integrationer → Fra GitHub**. Indsæt
 
 ```
-https://github.com/magnusdunker/thehome-recharts-card
+https://github.com/magnusdunker/homewrighthq-recharts-card
 ```
 
 og tryk **Installér**. Kortet hedder **Recharts-diagram** under **Tilføj kort** i dashboardets redigeringstilstand.
@@ -42,7 +42,7 @@ height: 220
 
 ## Sådan virker det
 
-TheHome henter `recharts-card.js` fra releasen og indlæser den i webfladen. Filen er et klassisk script, der ikke indeholder React. Det får React og resten fra `window.thehome`, som TheHome stiller til rådighed, og tilføjer kortet med `thehome.registerCard`. API'et er beskrevet i TheHomes `docs/custom-integrations.md` under "Custom cards".
+HomewrightHQ henter `recharts-card.js` fra releasen og indlæser den i webfladen. Filen er et klassisk script, der ikke indeholder React. Det får React og resten fra `window.thehome`, som HomewrightHQ stiller til rådighed, og tilføjer kortet med `thehome.registerCard`. API'et er beskrevet i HomewrightHQ's `docs/custom-integrations.md` under "Custom cards".
 
 - `src/index.jsx`: kortet og dets editor-skema
 - `src/data.js`: omregning af historik til rækker for Recharts, med tests i `src/data.test.js`
