@@ -1,20 +1,20 @@
-# Recharts-diagram til HomewrightHQ
+# Recharts chart for HomewrightHQ
 
-Et dashboardkort til [HomewrightHQ](https://github.com/magnusdunker/homewrighthq), der tegner historik som linje-, område- eller søjlediagram med [Recharts](https://recharts.org). Det er også et eksempel på, hvordan man laver sine egne kort.
+A dashboard card for [HomewrightHQ](https://github.com/magnusdunker/homewrighthq) that draws history as a line, area or bar chart with [Recharts](https://recharts.org). It is also an example of how to make your own cards.
 
 ## Installation
 
-I HomewrightHQ: **Indstillinger → Integrationer → Fra GitHub**. Indsæt
+In HomewrightHQ: **Settings → Integrations → From GitHub**. Paste
 
 ```
 https://github.com/magnusdunker/homewrighthq-recharts-card
 ```
 
-og tryk **Installér**. Kortet hedder **Recharts-diagram** under **Tilføj kort** i dashboardets redigeringstilstand.
+and press **Install**. The card is called **Recharts-diagram** (Recharts chart) under **Add card** in the dashboard's edit mode.
 
-Det er et rent kort-plugin: det tilføjer ingen integration og kører intet program på serveren.
+It is a pure card plugin: it adds no integration and runs no program on the server.
 
-## Indstillinger
+## Settings
 
 ```yaml
 type: custom:recharts-chart
@@ -24,10 +24,10 @@ entities:
   - entity: sensor.stue_luftfugtighed
     name: Fugt
     color: "#3b82f6"
-chart_type: line        # line, area eller bar
+chart_type: line        # line, area or bar
 hours_to_show: 24
-curve: monotone         # monotone, linear eller step
-stacked: false          # område og søjler
+curve: monotone         # monotone, linear or step
+stacked: false          # area and bars
 show_legend: true
 show_grid: true
 y_min: 0
@@ -35,21 +35,21 @@ y_max: 100
 height: 220
 ```
 
-- Søjler viser gennemsnittet pr. time, højst 48 søjler.
-- Linjer og områder holder den seneste værdi, ligesom en sensor gør, så trin vises som trin med `curve: step`.
-- Enheden står i kortets øverste hjørne. Tryk på et navn i signaturforklaringen for at åbne entityen.
-- Alle felter kan sættes i kortets visuelle editor, undtagen navn og farve pr. entity, som sættes i YAML.
+- Bars show the hourly average, at most 48 bars.
+- Lines and areas hold the latest value, as a sensor does, so steps show as steps with `curve: step`.
+- The unit is in the card's top corner. Press a name in the legend to open the entity.
+- All fields can be set in the card's visual editor, except name and color per entity, which are set in YAML.
 
-## Sådan virker det
+## How it works
 
-HomewrightHQ henter `recharts-card.js` fra releasen og indlæser den i webfladen. Filen er et klassisk script, der ikke indeholder React. Det får React og resten fra `window.thehome`, som HomewrightHQ stiller til rådighed, og tilføjer kortet med `thehome.registerCard`. API'et er beskrevet i HomewrightHQ's `docs/custom-integrations.md` under "Custom cards".
+HomewrightHQ fetches `recharts-card.js` from the release and loads it in the web interface. The file is a classic script that does not contain React. It gets React and the rest from `window.thehome`, which HomewrightHQ provides, and adds the card with `thehome.registerCard`. The API is described in HomewrightHQ's `docs/custom-integrations.md` under "Custom cards".
 
-- `src/index.jsx`: kortet og dets editor-skema
-- `src/data.js`: omregning af historik til rækker for Recharts, med tests i `src/data.test.js`
-- `vite.config.js`: bygger én IIFE-fil, hvor `react`, `react-dom` og `react/jsx-runtime` peger på `thehome.React`, `thehome.ReactDOM` og `thehome.jsxRuntime`
-- `.github/workflows/release.yml`: bygger filen og lægger den på releasen sammen med `thehome.json`
+- `src/index.jsx`: the card and its editor schema
+- `src/data.js`: conversion of history to rows for Recharts, with tests in `src/data.test.js`
+- `vite.config.js`: builds a single IIFE file, where `react`, `react-dom` and `react/jsx-runtime` point to `thehome.React`, `thehome.ReactDOM` and `thehome.jsxRuntime`
+- `.github/workflows/release.yml`: builds the file and puts it on the release together with `thehome.json`
 
-## Udvikling
+## Development
 
 ```
 npm install
@@ -57,8 +57,8 @@ npm test
 npm run build
 ```
 
-En ny version udgives med et tag, f.eks. `git tag v0.2.0 && git push origin v0.2.0`, eller ved at udgive en release med et `v`-tag på github.com.
+A new version is released with a tag, e.g. `git tag v0.2.0 && git push origin v0.2.0`, or by publishing a release with a `v` tag on github.com.
 
-## Licens
+## License
 
 MIT
